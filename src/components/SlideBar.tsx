@@ -13,7 +13,7 @@ export default function SlideBar() {
 
 
     return (
-        <aside className={`pl-5 py-16 w-2/3 md:w-1/6 ${!isSlideOpen ? "-translate-x-[93%]" : ""} fixed h-screen top-0 left-0 border-card border-r-2 flex items-center transition-all`}>
+        <aside className={`pl-5 py-16 w-2/3 xl:w-1/6 ${!isSlideOpen ? "-translate-x-[93%]" : ""} fixed h-screen top-0 left-0 border-card flex items-center transition-all backdrop-blur-sm`}>
 
             <div className=' bg-card dark:bg-cardDark p-3 rounded-lg w-full h-full'>
                 <h2 className=" w-full bg-primary rounded-md py-3 text-center text-2xl font-bold">Areas de trabajo</h2>
@@ -27,7 +27,7 @@ export default function SlideBar() {
                 </ul>  
             </div>
 
-            <button onClick={handleClick} className=' w-8 h-12 bg-cardDark dark:bg-card rounded-lg text-3xl font-semibold flex items-center justify-center translate-x-4'>
+            <button onClick={handleClick} className=' w-8 h-12 bg-cardDark rounded-lg text-3xl font-semibold flex items-center justify-center translate-x-4'>
                 {isSlideOpen ? "<" : ">"}
             </button>
         </aside>

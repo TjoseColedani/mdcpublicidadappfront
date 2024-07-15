@@ -13,7 +13,7 @@ export default function RootLayout({
       <Header/>
       <div className=' lg:flex'>
         <SlideBar />
-        <div className="flex flex-col items-center p-5 border-amber-200 border-2 w-full h-full">
+        <div className="flex flex-col items-center p-5 w-full h-screen overflow-hidden">
           {children}
         </div>
       </div>
