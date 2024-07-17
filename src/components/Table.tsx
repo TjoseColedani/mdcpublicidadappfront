@@ -1,8 +1,23 @@
+'use client'
+import { useState } from "react"
+
 export default function Table() {
+
+    const [isOpenTable,setIsOpenTable] = useState(false);
+    const handleClick = () => {
+        setIsOpenTable(!isOpenTable)
+    }
+
+
+
+
+
     return (
         <div className=" min-w-full w-max h-max p-3 flex flex-col gap-2 bg-red-600 rounded-md">
-            <h3 className=" text-xl font-semibold"><button>{'>'}</button> Mensajes Importantes</h3>
-                <table className="w-full divide-y divide-white">
+            <h3 className=" text-xl font-semibold">
+                <button onClick={handleClick} className={`${isOpenTable ? " rotate-90" : ""}`}>{'>'}</button> Mensajes Importantes
+            </h3>
+                <table className={`w-full divide-y divide-white ${isOpenTable ? " " : " hidden"}`}>
                     <thead className="bg-red-700">
                         <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
@@ -40,6 +55,7 @@ export default function Table() {
                             </td>
                         </tr>
                     </tbody>
+                    <button>+ Agregar Elemento</button>
                 </table>
             <h5 className=" text-sm">x Cantidad de Elementos</h5>
         </div>
