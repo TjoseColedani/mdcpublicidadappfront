@@ -4,7 +4,7 @@ export default function Trabajos() {
   return (
     <main className=' w-full h-screen pl-7 flex flex-col bg-background dark:bg-backgroundDark pt-14'>
       <h1 className=' text-3xl font-semibold text-center mb-7'>MDC Trabajos</h1>
-      <ul className=' h-12 md:pl-0 pl-56 flex w-full overflow-x-auto justify-around mb-10 mt-5'>
+      <ul className=' h-12 flex w-full overflow-x-auto justify-around mb-10 mt-5'>
         <li className=' w-max'>
           <button className=' w-max bg-red-600 hover:bg-red-700 p-2 rounded-md'>Agregar Elemento</button>
         </li>

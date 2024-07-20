@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react"
+import Messages from "./Messages";
 
 export default function Table() {
 
@@ -58,6 +59,7 @@ export default function Table() {
                     <button>+ Agregar Elemento</button>
                 </table>
             <h5 className=" text-sm">x Cantidad de Elementos</h5>
+            <Messages/>
         </div>
     )
 }

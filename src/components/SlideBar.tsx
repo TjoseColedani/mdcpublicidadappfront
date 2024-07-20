@@ -19,10 +19,10 @@ export default function SlideBar() {
                 <h2 className=" w-full bg-primary rounded-md py-3 text-center text-2xl font-bold">Areas de trabajo</h2>
                 <ul className="list-none p-3">
                     <li>
-                        <Link href="#" className=" w-full h-max block px-4 py-2 text-sm text-white hover:bg-background hover:text-black">MDC Trabajos</Link>
+                        <Link href="/views/trabajos" className=" w-full h-max block px-4 py-2 text-sm text-white hover:bg-background hover:text-black">MDC Trabajos</Link>
                     </li>
                     <li>
-                        <Link href="#" className=" w-full h-max block px-4 py-2 text-sm text-white hover:bg-background hover:text-black">Compras</Link>
+                        <Link href="/views/compras" className=" w-full h-max block px-4 py-2 text-sm text-white hover:bg-background hover:text-black">Compras</Link>
                     </li>
                 </ul>  
             </div>
