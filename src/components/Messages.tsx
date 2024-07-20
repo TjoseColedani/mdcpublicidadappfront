@@ -1,7 +1,10 @@
-export default function Messages() {
+export default function Messages({ setMessageOpen }: { setMessageOpen: () => void }) {
     return (
-        <div className="w-screen h-full md:w-1/2 fixed right-0 top-0 bg-backgroundDark/20 flex flex-col items-center justify-start gap-6 pt-16 pb-3 px-8">
-            <h3 className="text-start w-full">Nombre Elemento</h3>
+        <div className="w-screen h-full md:w-1/2 fixed right-0 top-0 bg-backgroundDark/80 flex flex-col items-center justify-start gap-6 pt-16 pb-3 px-8">
+            <div className="flex justify-between px-2 w-full">
+                <h3 className="text-start w-full">Nombre Elemento</h3>
+                <button className="font-bold w-max h-max" onClick={setMessageOpen}>X</button>
+            </div>
             <div className="flex w-full h-max rounded-md border-2 overflow-hidden">
                 <button className="p-2 border-r-[1px] w-1/2 hover:bg-cardDark">MENSAJE</button>
                 <button className="p-2 border-l-[1px] w-1/2 hover:bg-cardDark">ARCHIVO</button>
