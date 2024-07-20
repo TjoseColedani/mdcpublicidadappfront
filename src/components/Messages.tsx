@@ -1,4 +1,8 @@
+import { useState } from "react";
+import MessagesSection from "./MessageSection";
+
 export default function Messages({ setMessageOpen }: { setMessageOpen: () => void }) {
+    const [section, setSection] = useState('messages')
     return (
         <div className="w-screen h-full md:w-1/2 fixed right-0 top-0 bg-backgroundDark/80 flex flex-col items-center justify-start gap-6 pt-16 pb-3 px-8">
             <div className="flex justify-between px-2 w-full">
@@ -6,23 +10,15 @@ export default function Messages({ setMessageOpen }: { setMessageOpen: () => voi
                 <button className="font-bold w-max h-max" onClick={setMessageOpen}>X</button>
             </div>
             <div className="flex w-full h-max rounded-md border-2 overflow-hidden">
-                <button className="p-2 border-r-[1px] w-1/2 hover:bg-cardDark">MENSAJE</button>
-                <button className="p-2 border-l-[1px] w-1/2 hover:bg-cardDark">ARCHIVO</button>
+                <button className={`p-2 border-r-[1px] w-1/2 hover:bg-cardDark ${section === 'messages' ? 'bg-cardDark': ''}`} onClick={()=>{
+                    setSection(prev => prev = 'messages')
+                }}>MENSAJE</button>
+                <button className={`p-2 border-r-[1px] w-1/2 hover:bg-cardDark ${section === 'files' ? 'bg-cardDark': ''}`} onClick={()=>{
+                    setSection(prev => prev = 'files')
+                }}>ARCHIVO</button>
             </div>
             <div className="w-full flex-1 relative flex flex-col gap-5">
-                <label className="w-full h-max relative rounded-md overflow-hidden flex" htmlFor="mensaje">
-                    <input type="text" placeholder="Escribir mensaje..." className="p-2 flex-1 outline-none text-cardDark" />
-                    <button className="bg-cardDark/40 hover:bg-cardDark w-max h-full px-2">Enviar</button>
-                </label>
-                <div className="w-full flex-1">
-                    <div className="w-full h-2/5 p-2 border-2 rounded-t-md">
-                        <p>mensaje aqui</p>
-                    </div>
-                    <div className="flex w-full h-max rounded-b-md border-2 overflow-hidden">
-                        <button className="p-2 border-r-[1px] w-1/2 hover:bg-cardDark">LIKE</button>
-                        <button className="p-2 border-l-[1px] w-1/2 hover:bg-cardDark">RESPONDER</button>
-                    </div>
-                </div>
+                {section === 'messages' ? <MessagesSection/>: 'Files'}
             </div>
         </div>
     )
