@@ -1,5 +1,6 @@
 import { useState } from "react";
 import MessagesSection from "./MessageSection";
+import FileSection from "./FileSection";
 
 export default function Messages({ setMessageOpen }: { setMessageOpen: () => void }) {
     const [section, setSection] = useState('messages')
@@ -9,7 +10,7 @@ export default function Messages({ setMessageOpen }: { setMessageOpen: () => voi
                 <h3 className="text-start w-full">Nombre Elemento</h3>
                 <button className="font-bold w-max h-max" onClick={setMessageOpen}>X</button>
             </div>
-            <div className="flex w-full h-max rounded-md border-2 overflow-hidden">
+            <div className="flex w-full h-max rounded-md border-2 overflow-hidden relative">
                 <button className={`p-2 border-r-[1px] w-1/2 hover:bg-cardDark ${section === 'messages' ? 'bg-cardDark': ''}`} onClick={()=>{
                     setSection(prev => prev = 'messages')
                 }}>MENSAJE</button>
@@ -17,8 +18,8 @@ export default function Messages({ setMessageOpen }: { setMessageOpen: () => voi
                     setSection(prev => prev = 'files')
                 }}>ARCHIVO</button>
             </div>
-            <div className="w-full flex-1 relative flex flex-col gap-5">
-                {section === 'messages' ? <MessagesSection/>: 'Files'}
+            <div className="w-full flex-1 relative flex flex-col gap-5 overflow-auto">
+                {section === 'messages' ? <MessagesSection/>: <FileSection/>}
             </div>
         </div>
     )
