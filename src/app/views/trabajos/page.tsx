@@ -1,6 +1,25 @@
-import Table from '@/components/Table'
+'use client'
+import { useEffect, useState } from 'react';
+import Table from '@/components/Table';
+import { ICategory } from '@/interfaces/ICategory';
+import { DataService } from '@/services/data-service';
 
 export default function Trabajos() {
+  const [categories, setCategories] = useState<ICategory[]>([]);
+  const dataService = new DataService();
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await dataService.getCategories();
+        setCategories(data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
   return (
     <main className=' w-full h-screen pl-7 flex flex-col bg-background dark:bg-backgroundDark pt-14'>
       <h1 className=' text-3xl font-semibold text-center mb-7'>MDC Trabajos</h1>
@@ -26,17 +45,9 @@ export default function Trabajos() {
       </ul>
 
       <div className=' w-full h-[85%] overflow-auto flex flex-col gap-4 scrollbar-hide'>
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
-        <Table />
+        {categories.map(category => (
+          <Table key={category.id} category={category} />
+        ))}
       </div>
     </main>
   )
